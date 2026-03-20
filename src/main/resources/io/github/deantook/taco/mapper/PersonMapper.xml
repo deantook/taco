@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.deantook.taco.mapper.PersonMapper">
+
+    <resultMap id="BaseResultMap" type="io.github.deantook.taco.domain.Person">
+            <id property="id" column="id" />
+            <result property="name" column="name" />
+            <result property="originalName" column="original_name" />
+            <result property="avatar" column="avatar" />
+            <result property="bio" column="bio" />
+            <result property="aliases" column="aliases" />
+            <result property="gender" column="gender" />
+            <result property="birthDate" column="birth_date" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,original_name,avatar,bio,aliases,
+        gender,birth_date,created_at,updated_at
+    </sql>
+</mapper>
