@@ -41,3 +41,65 @@ export type Person = {
   createdAt: string | number | null
   updatedAt: string | number | null
 }
+
+export type Movie = {
+  id: number | null
+  title: string | null
+  originalTitle: string | null
+  description: string | null
+  duration: number | null
+  releaseDate: string | number | null
+  country: string | null
+  language: string | null
+  coverUrl: string | null
+  metadata: unknown
+  createdAt: string | number | null
+  updatedAt: string | number | null
+}
+
+export type Book = {
+  id: number | null
+  title: string | null
+  originalTitle: string | null
+  description: string | null
+  pageCount: number | null
+  publisher: string | null
+  publishDate: string | number | null
+  coverUrl: string | null
+  metadata: unknown
+  createdAt: string | number | null
+  updatedAt: string | number | null
+}
+
+export type TvSeries = {
+  id: number | null
+  title: string | null
+  originalTitle: string | null
+  description: string | null
+  seasonCount: number | null
+  episodeCount: number | null
+  releaseDate: string | number | null
+  status: unknown
+  country: string | null
+  language: string | null
+  coverUrl: string | null
+  metadata: unknown
+  createdAt: string | number | null
+  updatedAt: string | number | null
+}
+
+export type AnimeSeries = {
+  id: number | null
+  title: string | null
+  originalTitle: string | null
+  description: string | null
+  episodeCount: number | null
+  releaseDate: string | number | null
+  season: string | null
+  status: unknown
+  studio: string | null
+  coverUrl: string | null
+  metadata: unknown
+  createdAt: string | number | null
+  updatedAt: string | number | null
+}

@@ -1,10 +1,25 @@
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import { LogOut, Moon, Sun, Users } from 'lucide-react'
+import {
+  BookOpen,
+  Film,
+  LogOut,
+  Moon,
+  Sparkles,
+  Sun,
+  Tv,
+  Users,
+} from 'lucide-react'
 import { useAuth } from '../auth/AuthContext'
 import { useTheme } from '../theme/ThemeContext'
 import { Button } from '../components/ui/Button'
 
-const nav = [{ to: '/person', label: '人物', icon: Users }]
+const nav = [
+  { to: '/person', label: '人物', icon: Users },
+  { to: '/movie', label: '电影', icon: Film },
+  { to: '/book', label: '书', icon: BookOpen },
+  { to: '/tv-series', label: '电视剧', icon: Tv },
+  { to: '/anime-series', label: '番剧', icon: Sparkles },
+] as const
 
 export function AdminLayout() {
   const { user, logout } = useAuth()
@@ -12,7 +27,10 @@ export function AdminLayout() {
   const location = useLocation()
 
   const title =
-    nav.find((n) => location.pathname.startsWith(n.to))?.label ?? '控制台'
+    nav.find(
+      (n) =>
+        location.pathname === n.to || location.pathname.startsWith(`${n.to}/`)
+    )?.label ?? '控制台'
 
   return (
     <div className="flex min-h-screen font-sans">

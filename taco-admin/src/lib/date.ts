@@ -34,3 +34,12 @@ export function toDateInputValue(
   const day = String(d.getDate()).padStart(2, '0')
   return `${y}-${m}-${day}`
 }
+
+/** 将 date input 的 yyyy-MM-dd 转为后端常用 UTC 午夜 ISO */
+export function dateInputToIsoUtc(value: string): string | null {
+  const t = value.trim()
+  if (!t) {
+    return null
+  }
+  return `${t}T00:00:00.000Z`
+}
