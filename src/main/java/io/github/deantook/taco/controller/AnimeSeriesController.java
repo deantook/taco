@@ -4,8 +4,8 @@ import io.github.deantook.taco.common.ApiResult;
 import io.github.deantook.taco.common.PagePayload;
 import io.github.deantook.taco.common.PageQuery;
 import io.github.deantook.taco.common.ResultCode;
-import io.github.deantook.taco.domain.Book;
-import io.github.deantook.taco.service.BookService;
+import io.github.deantook.taco.domain.AnimeSeries;
+import io.github.deantook.taco.service.AnimeSeriesService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,49 +22,49 @@ import org.springframework.web.bind.annotation.RestController;
  * @author dean
  */
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/anime-series")
 @RequiredArgsConstructor
-public class BookController {
+public class AnimeSeriesController {
 
-    private final BookService bookService;
+    private final AnimeSeriesService animeSeriesService;
 
     @GetMapping
-    public ApiResult<PagePayload<Book>> page(
+    public ApiResult<PagePayload<AnimeSeries>> page(
         @RequestParam(required = false) Long current,
         @RequestParam(required = false) Long size) {
         PageQuery q = PageQuery.of(current, size);
-        Page<Book> p = new Page<>(q.current(), q.size());
-        return ApiResult.ok(PagePayload.from(bookService.page(p)));
+        Page<AnimeSeries> p = new Page<>(q.current(), q.size());
+        return ApiResult.ok(PagePayload.from(animeSeriesService.page(p)));
     }
 
     @GetMapping("/{id}")
-    public ApiResult<Book> getById(@PathVariable Long id) {
-        Book book = bookService.getById(id);
-        if (book == null) {
+    public ApiResult<AnimeSeries> getById(@PathVariable Long id) {
+        AnimeSeries series = animeSeriesService.getById(id);
+        if (series == null) {
             return ApiResult.fail(ResultCode.NOT_FOUND);
         }
-        return ApiResult.ok(book);
+        return ApiResult.ok(series);
     }
 
     @PostMapping
-    public ApiResult<Book> create(@RequestBody Book book) {
-        book.setId(null);
-        bookService.save(book);
-        return ApiResult.ok(book);
+    public ApiResult<AnimeSeries> create(@RequestBody AnimeSeries series) {
+        series.setId(null);
+        animeSeriesService.save(series);
+        return ApiResult.ok(series);
     }
 
     @PutMapping("/{id}")
-    public ApiResult<Book> update(@PathVariable Long id, @RequestBody Book book) {
-        book.setId(id);
-        if (!bookService.updateById(book)) {
+    public ApiResult<AnimeSeries> update(@PathVariable Long id, @RequestBody AnimeSeries series) {
+        series.setId(id);
+        if (!animeSeriesService.updateById(series)) {
             return ApiResult.fail(ResultCode.NOT_FOUND);
         }
-        return ApiResult.ok(bookService.getById(id));
+        return ApiResult.ok(animeSeriesService.getById(id));
     }
 
     @DeleteMapping("/{id}")
     public ApiResult<Void> delete(@PathVariable Long id) {
-        if (!bookService.removeById(id)) {
+        if (!animeSeriesService.removeById(id)) {
             return ApiResult.fail(ResultCode.NOT_FOUND);
         }
         return ApiResult.ok();
