@@ -24,7 +24,7 @@ CREATE TABLE user_item_statu
     INDEX        idx_status (status)
 ) COMMENT='用户作品状态表';
 
-CREATE TABLE user_progres
+CREATE TABLE user_progress
 (
     id               BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
 
@@ -43,9 +43,9 @@ CREATE TABLE user_progres
     created_at       DATETIME      DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at       DATETIME      DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
 
-    CONSTRAINT fk_user_progress_user FOREIGN KEY (user_id) REFERENCES user (id),
+    CONSTRAINT fk_user_progresss_user FOREIGN KEY (user_id) REFERENCES user (id),
 
-    UNIQUE KEY uniq_user_progress (user_id, content_type, content_id),
+    UNIQUE KEY uniq_user_progresss (user_id, content_type, content_id),
 
     INDEX            idx_user (user_id),
     INDEX            idx_content (content_type, content_id)

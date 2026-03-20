@@ -9,11 +9,11 @@ import lombok.Data;
 
 /**
  * 用户进度表
- * @TableName user_progres
+ * @TableName user_progress
  */
-@TableName(value ="user_progres")
+@TableName(value ="user_progress")
 @Data
-public class UserProgres {
+public class UserProgress {
     /**
      * 主键ID
      */
@@ -76,7 +76,7 @@ public class UserProgres {
         if (getClass() != that.getClass()) {
             return false;
         }
-        UserProgres other = (UserProgres) that;
+        UserProgress other = (UserProgress) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getContentType() == null ? other.getContentType() == null : this.getContentType().equals(other.getContentType()))
