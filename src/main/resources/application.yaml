@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: taco
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://117.50.220.90:3306/taco?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: dean123

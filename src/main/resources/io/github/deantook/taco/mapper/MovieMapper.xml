@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.deantook.taco.mapper.MovieMapper">
+
+    <resultMap id="BaseResultMap" type="io.github.deantook.taco.domain.Movie">
+            <id property="id" column="id" />
+            <result property="title" column="title" />
+            <result property="originalTitle" column="original_title" />
+            <result property="description" column="description" />
+            <result property="duration" column="duration" />
+            <result property="releaseDate" column="release_date" />
+            <result property="country" column="country" />
+            <result property="language" column="language" />
+            <result property="coverUrl" column="cover_url" />
+            <result property="metadata" column="metadata" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,original_title,description,duration,release_date,
+        country,language,cover_url,metadata,created_at,
+        updated_at
+    </sql>
+</mapper>

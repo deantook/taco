@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.deantook.taco.mapper.BookMapper">
+
+    <resultMap id="BaseResultMap" type="io.github.deantook.taco.domain.Book">
+            <id property="id" column="id" />
+            <result property="title" column="title" />
+            <result property="originalTitle" column="original_title" />
+            <result property="description" column="description" />
+            <result property="pageCount" column="page_count" />
+            <result property="publisher" column="publisher" />
+            <result property="publishDate" column="publish_date" />
+            <result property="coverUrl" column="cover_url" />
+            <result property="metadata" column="metadata" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,original_title,description,page_count,publisher,
+        publish_date,cover_url,metadata,created_at,updated_at
+    </sql>
+</mapper>
