@@ -6,3 +6,8 @@ spring:
     url: jdbc:mysql://117.50.220.90:3306/taco?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: dean123
+
+jwt:
+  # HS256：至少 32 字节；生产环境请用环境变量覆盖
+  secret: "change-me-please-use-at-least-32-chars-long-secret-key"
+  expiration-ms: 86400000

@@ -3,6 +3,7 @@ package io.github.deantook.taco.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
 import lombok.Data;
 
@@ -33,6 +34,7 @@ public class User {
     /**
      * 密码哈希（加密存储）
      */
+    @JsonIgnore
     private String passwordHash;
 
     /**
@@ -48,7 +50,7 @@ public class User {
     /**
      * 用户状态
      */
-    private Object status;
+    private UserStatus status;
 
     /**
      * 创建时间
