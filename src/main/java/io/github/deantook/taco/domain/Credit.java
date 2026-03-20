@@ -1,6 +1,7 @@
 package io.github.deantook.taco.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.util.Date;
@@ -53,6 +54,7 @@ public class Credit {
     /**
      * 排序（演员表顺序，越小越靠前）
      */
+    @TableField("`order`")
     private Integer order;
 
     /**

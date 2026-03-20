@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Pencil, Plus, Trash2 } from 'lucide-react'
 import { ApiError } from '../../api/client'
 import * as tvApi from '../../api/tvSeries'
+import { CreditsEditor } from '../../components/credits/CreditsEditor'
 import { ListPagination } from '../../components/crud/ListPagination'
 import { Button } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
@@ -318,7 +319,7 @@ export function TvSeriesPage() {
           role="presentation"
           onClick={(e) => e.target === e.currentTarget && closeModal()}
         >
-          <Card className="max-h-[90vh] w-full max-w-lg overflow-y-auto p-6 shadow-xl">
+          <Card className="max-h-[90vh] w-full max-w-2xl overflow-y-auto p-6 shadow-xl">
             <h2 className="mb-4 text-base font-semibold text-neutral-900 dark:text-neutral-100">
               {mode === 'create' ? '新建电视剧' : '编辑电视剧'}
             </h2>
@@ -448,6 +449,10 @@ export function TvSeriesPage() {
                 </Button>
               </div>
             </form>
+            <CreditsEditor
+              contentType="tv_series"
+              contentId={mode === 'edit' ? editId : null}
+            />
           </Card>
         </div>
       ) : null}

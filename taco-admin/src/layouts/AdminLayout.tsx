@@ -4,6 +4,7 @@ import {
   Film,
   LogOut,
   Moon,
+  Shield,
   Sparkles,
   Sun,
   Tv,
@@ -19,6 +20,7 @@ const nav = [
   { to: '/book', label: '书', icon: BookOpen },
   { to: '/tv-series', label: '电视剧', icon: Tv },
   { to: '/anime-series', label: '番剧', icon: Sparkles },
+  { to: '/role', label: '角色', icon: Shield },
 ] as const
 
 export function AdminLayout() {

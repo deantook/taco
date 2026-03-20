@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Pencil, Plus, Trash2 } from 'lucide-react'
 import { ApiError } from '../../api/client'
 import * as bookApi from '../../api/book'
+import { CreditsEditor } from '../../components/credits/CreditsEditor'
 import { ListPagination } from '../../components/crud/ListPagination'
 import { Button } from '../../components/ui/Button'
 import { Card } from '../../components/ui/Card'
@@ -306,7 +307,7 @@ export function BookPage() {
           role="presentation"
           onClick={(e) => e.target === e.currentTarget && closeModal()}
         >
-          <Card className="max-h-[90vh] w-full max-w-lg overflow-y-auto p-6 shadow-xl">
+          <Card className="max-h-[90vh] w-full max-w-2xl overflow-y-auto p-6 shadow-xl">
             <h2 className="mb-4 text-base font-semibold text-neutral-900 dark:text-neutral-100">
               {mode === 'create' ? '新建书籍' : '编辑书籍'}
             </h2>
@@ -407,6 +408,10 @@ export function BookPage() {
                 </Button>
               </div>
             </form>
+            <CreditsEditor
+              contentType="book"
+              contentId={mode === 'edit' ? editId : null}
+            />
           </Card>
         </div>
       ) : null}

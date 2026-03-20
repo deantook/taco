@@ -7,6 +7,7 @@ import { BookPage } from './pages/book/BookPage'
 import { LoginPage } from './pages/LoginPage'
 import { MoviePage } from './pages/movie/MoviePage'
 import { PersonPage } from './pages/person/PersonPage'
+import { RolePage } from './pages/role/RolePage'
 import { TvSeriesPage } from './pages/tv/TvSeriesPage'
 import { RequireAuth } from './routes/RequireAuth'
 
@@ -25,6 +26,7 @@ export default function App() {
                 <Route path="book" element={<BookPage />} />
                 <Route path="tv-series" element={<TvSeriesPage />} />
                 <Route path="anime-series" element={<AnimeSeriesPage />} />
+                <Route path="role" element={<RolePage />} />
               </Route>
             </Route>
             <Route path="*" element={<Navigate to="/person" replace />} />

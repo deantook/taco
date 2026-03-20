@@ -103,3 +103,28 @@ export type AnimeSeries = {
   createdAt: string | number | null
   updatedAt: string | number | null
 }
+
+/** 演职角色类型（Person 职业：演员/导演等） */
+export type Role = {
+  id: number | null
+  code: string | null
+  name: string | null
+  category: unknown
+  description: string | null
+  createdAt: string | number | null
+}
+
+/** 作品—人物—职业 关系（credit 表） */
+export type Credit = {
+  id: number | null
+  contentType: unknown
+  contentId: number | null
+  personId: number | null
+  roleId: number | null
+  subRole: string | null
+  characterName: string | null
+  /** 排序，对应后端列名 order */
+  order: number | null
+  extra: unknown
+  createdAt: string | number | null
+}
