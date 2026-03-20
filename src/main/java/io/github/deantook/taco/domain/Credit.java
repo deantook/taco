@@ -8,6 +8,7 @@ import lombok.Data;
 
 /**
  * 演职人员关系表（系统核心关系层）
+ * @author dean
  * @TableName credit
  */
 @TableName(value ="credit")
